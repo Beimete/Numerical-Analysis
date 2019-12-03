@@ -2,16 +2,22 @@
 #include "stdio.h"
 #include "newt.c"
 
-int main(){
+void main(){
     int js, k;
-    double x, eps;
+    double x1, x2, eps;
     void newtf(double, double []);
     eps = 0.00000005;
     js = 1000;
-    x = log(6);
-    k = newt(&x, eps, js, newtf);
+    x1 = log(5);
+    k = newt(&x1, eps, js, newtf);
     if(k>=0){
-        printf("k=%d    x=%13.7e\n", k, x);
+        printf("k=%d    x1=%13.7e\n", k, x1);
+    }
+
+    x2 = log(10);
+    k = newt(&x2, eps, js, newtf);
+    if(k>=0){
+        printf("k=%d    x2=%13.7e\n", k, x2);
     }
     printf("\n");
 }

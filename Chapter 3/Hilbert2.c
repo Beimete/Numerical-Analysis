@@ -14,7 +14,7 @@ double Hilb(double *h, int n){
 
 void gsdl(double a[], double b[], int n, double x[], double eps){
  /**
- * 求解对称正定方程组的共轭梯度法 AX=B
+ * 求解主对角线占优系数矩阵的高斯-赛德尔迭代法AX=B
  * double a[n][n] 存放对称正定矩阵A
  * int n 方程组的阶数
  * double b[n] 存放方程组右端的常数向量
@@ -99,7 +99,6 @@ void SolveVector_100(double *h, double *s){
 
 void main(){
   double norm;
-
   double nor=0.0, Nor=0.0, X[10], Y[10], A[100], S[10], H[10][10];
   Hilb(A, 10);
   SolveVector_10(A, S);

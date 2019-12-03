@@ -2,18 +2,29 @@
 #include "stdio.h"
 #include "newt.c"
 
-int main(){
+void main(){
     int js, k;
-    double x, eps;
+    double x3, x4, x5, eps;
     void newtf(double, double []);
     eps = 0.00000005;
     js = 1000;
-    x = 0.29488; // 0.29485, 0.29486, 0.29487
-    k = newt(&x, eps, js, newtf);
+    x3 = -0.835; 
+    k = newt(&x3, eps, js, newtf);
     if(k>=0){
-        printf("k=%d    x=%13.7e\n", k, x);
+        printf("k=%d    x3=%13.7e\n", k, x3);
     }
-    printf("\n");
+
+    x4 = 0.953; 
+    k = newt(&x4, eps, js, newtf);
+    if(k>=0){
+        printf("k=%d    x4=%13.7e\n", k, x4);
+    }
+
+    x5 = 3.657; 
+    k = newt(&x5, eps, js, newtf);
+    if(k>=0){
+        printf("k=%d    x5=%13.7e\n", k, x5);
+    }
 }
 
 void newtf(x, y)

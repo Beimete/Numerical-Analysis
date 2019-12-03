@@ -69,48 +69,55 @@ double InfinCond_Hilb(double *h, int n){
 }
 
 void main(){
-    int i, j;
-    double hilb[100000], hilb_[10000], c[4][4];
-    Hilb(hilb, 4);
-    for(i=0; i<=3; i++)
-    for(j=0; j<=3; j++)
-        hilb_[i*4+j] = hilb[i*4+j];
-    i = ssgj(hilb, 4);
-    if(i>0){
-         printf("MAT hilb IS:\n");
-        for(i=0; i<=3; i++){
-            for(j=0; j<=3; j++)
-                printf("%13.6e  ", hilb_[i*4+j]);
-            printf("\n");
-        }
-        printf("\n");
-        printf("MAT hilb- IS:\n");
-        for(i=0; i<=3; i++){
-            for(j=0; j<=3; j++)
-                printf("%13.6e  ", hilb[i*4+j]);
-            printf("\n");
-        }
-        printf("\n");
-        printf("MAT hilb*hilb- IS:\n");
-        trmul(hilb_, hilb, 4, 4, 4, c);
-        for(i=0; i<=3; i++){
-            for(j=0; j<=3; j++)
-                printf("%13.6e  ", c[i][j]);
-            printf("\n");
-        }
-        printf("\n");
+    // int i, j;
+    // double hilb[100000], hilb_[10000], c[4][4];
+    // Hilb(hilb, 4);
+    // for(i=0; i<=3; i++)
+    // for(j=0; j<=3; j++)
+    //     hilb_[i*4+j] = hilb[i*4+j];
+    // i = ssgj(hilb, 4);
+    // if(i>0){
+    //      printf("MAT hilb IS:\n");
+    //     for(i=0; i<=3; i++){
+    //         for(j=0; j<=3; j++)
+    //             printf("%13.6e  ", hilb_[i*4+j]);
+    //         printf("\n");
+    //     }
+    //     printf("\n");
+    //     printf("MAT hilb- IS:\n");
+    //     for(i=0; i<=3; i++){
+    //         for(j=0; j<=3; j++)
+    //             printf("%13.6e  ", hilb[i*4+j]);
+    //         printf("\n");
+    //     }
+    //     printf("\n");
+    //     printf("MAT hilb*hilb- IS:\n");
+    //     trmul(hilb_, hilb, 4, 4, 4, c);
+    //     for(i=0; i<=3; i++){
+    //         for(j=0; j<=3; j++)
+    //             printf("%13.6e  ", c[i][j]);
+    //         printf("\n");
+    //     }
+    //     printf("\n");
+    // }
+
+    // Hilb(hilb, 5);
+    // printf("n= 5 Infinite Cond IS:  %13.6e\n",InfinCond_Hilb(hilb, 5));
+    // printf("\n");
+
+
+    // Hilb(hilb, 100);
+    // printf("n=100 Infinite hilb Norm IS:  %13.6e\n",InfinNorm_Hilb(hilb, 100));
+    // ssgj(hilb, 100);
+    // printf("n=100 Infinite hilb_ Norm IS:  %13.6e\n",InfinNorm_Hilb(hilb, 100));
+
+    // Hilb(hilb, 100);
+    // printf("n=100 Infinite Cond IS:  %13.6e\n",InfinCond_Hilb(hilb, 100));
+    
+    for(int k=10; k<101; k+=10){
+      double hilb[100000];
+      Hilb(hilb, k);
+      printf("n=%d Infinite Cond IS:  %13.6e\n",k,log(InfinCond_Hilb(hilb, k)));
     }
 
-    Hilb(hilb, 5);
-    printf("n= 5 Infinite Cond IS:  %13.6e\n",InfinCond_Hilb(hilb, 5));
-    printf("\n");
-
-
-    Hilb(hilb, 100);
-    printf("n=100 Infinite hilb Norm IS:  %13.6e\n",InfinNorm_Hilb(hilb, 100));
-    ssgj(hilb, 100);
-    printf("n=100 Infinite hilb_ Norm IS:  %13.6e\n",InfinNorm_Hilb(hilb, 100));
-
-    Hilb(hilb, 100);
-    printf("n=100 Infinite Cond IS:  %13.6e\n",InfinCond_Hilb(hilb, 100));
 }
